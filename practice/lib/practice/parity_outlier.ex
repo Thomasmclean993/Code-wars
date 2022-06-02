@@ -1,4 +1,6 @@
 defmodule ParityOutlier do
+
+
   require Integer
 
   def find_outlier(list) do
@@ -10,7 +12,7 @@ defmodule ParityOutlier do
   end
 
   def eval_num_of_evens(list) do
-    Enum.count(list, fn x -> Integer.is_even(x) end)
+    Enum.count(list, &Integer.is_even/1)
   end
 
   def parse_even_or_odd(list, num_of_even_integers) when num_of_even_integers == 1 do
