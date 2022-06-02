@@ -1,38 +1,25 @@
-defmodule Kata do
+defmodule ParityOutlier do
+
 
   require Integer
 
   def find_outlier(list) do
-    with value_of_list <- Enum.sum(list),
-         boolean_value <- Integer.is_even(value_of_list),
-         list_w_zeros <- parse_atom(list, boolean_value) do
-          filter_list(list_w_zeros)
-          |> List.first
-    end
-  end
+    num_of_even_integers = eval_num_of_evens(list)
 
-  def parse_atom(list, boolean) do
-    if boolean == true do
-      Enum.map(list, fn x ->
-        if Integer.is_even(x) do
-          x
-        else
-          "0"
-        end
-      end)
-    else
-      Enum.map(list, fn x ->
-      if Integer.is_odd(x) do
-        x
-      else
-      "0"
-      end
-      end)
-    end
-  end
-
-  def filter_list(list) do
     list
-    |> Enum.reject(fn x -> x == "0" end)
+    |> parse_even_or_odd(num_of_even_integers)
+    |> Enum.sum
+  end
+
+  def eval_num_of_evens(list) do
+    Enum.count(list, &Integer.is_even/1)
+  end
+
+  def parse_even_or_odd(list, num_of_even_integers) when num_of_even_integers == 1 do
+    Enum.reject(list, fn x -> Integer.is_odd(x) end)
+  end
+
+  def parse_even_or_odd(list, _num_of_even_integers) do
+    Enum.reject(list, fn x -> Integer.is_even(x) end)
   end
 end
