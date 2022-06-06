@@ -1,6 +1,7 @@
 defmodule EndsWith do
   def solution(str, ending) do
-  converted_ending = String.downcase(ending)
+    converted_ending = String.downcase(ending)
+
     String.ends_with?(str, converted_ending)
   end
 
