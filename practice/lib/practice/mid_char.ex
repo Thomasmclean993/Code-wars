@@ -1,4 +1,5 @@
 defmodule MidChar do
+
   require Integer
 
   def get_middle(str) do
@@ -15,7 +16,7 @@ defmodule MidChar do
     |> Kernel.-(1)
     |> div(2)
   end
-  
+
   def pull_num_of_elem(count) when rem(count, 2) == 0, do: 2
   def pull_num_of_elem(_), do: 1
 end
