@@ -10,9 +10,9 @@ defmodule TestSolution do
     assert solution("abc", "") == true
   end
 
-  # test "complex solutions" do
-  #   assert solution("qwerty", "we") == false
-  #   assert solution("qwerty", "ty") == true
-  #   assert solution("qwerty", "TY") == true
-  # end
+  test "complex solutions" do
+    assert solution("qwerty", "we") == false
+    assert solution("qwerty", "ty") == true
+    assert solution("qwerty", "TY") == true
+  end
 end
