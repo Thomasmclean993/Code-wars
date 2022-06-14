@@ -1,5 +1,6 @@
 defmodule MidChar do
 
+  use Bitwise
   require Integer
 
   def get_middle(str) do
@@ -14,9 +15,10 @@ defmodule MidChar do
   def discover_index(num) do
     num
     |> Kernel.-(1)
-    |> div(2)
+    |> length_of_parse
   end
 
+  def length_of_parse(num), do: num >>> 1
   def pull_num_of_elem(count) when rem(count, 2) == 0, do: 2
   def pull_num_of_elem(_), do: 1
 end

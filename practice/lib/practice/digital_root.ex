@@ -1,6 +1,6 @@
 defmodule Root do
 
-  def digital_root(value) when value <= 9, do: value
+  def digital_root(n) when n <= 9, do: n
 
   def digital_root(n) do
     n
